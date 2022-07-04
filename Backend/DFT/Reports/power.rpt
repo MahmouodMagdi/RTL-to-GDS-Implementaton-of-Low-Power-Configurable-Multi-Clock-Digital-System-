@@ -1,0 +1,76 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : SYS_TOP
+Version: K-2015.06
+Date   : Sun May 15 17:37:34 2022
+****************************************
+
+
+Library(s) Used:
+
+    scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (File: /home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db)
+
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+SYS_TOP                tsmc13_wl30       scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+
+Global Operating Voltage = 1.08 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+SYS_TOP                                   0.371    0.133 1.67e+07    0.521 100.0
+  U0_CLK_GATE (CLK_GATE)               3.17e-02 4.48e-03 4.35e+04 3.62e-02   7.0
+  U0_ALU (ALU_test_1)                  2.90e-03 1.37e-02 7.09e+06 2.37e-02   4.6
+    mult_49 (ALU_DW02_mult_0)          4.72e-07 1.96e-08 1.64e+06 1.64e-03   0.3
+    add_43 (ALU_DW01_add_0)            5.74e-08 3.75e-08 2.04e+05 2.04e-04   0.0
+    sub_46 (ALU_DW01_sub_0)            5.75e-08 4.41e-08 2.38e+05 2.38e-04   0.0
+    div_52 (ALU_DW_div_uns_0)             0.000    0.000 3.76e+06 3.76e-03   0.7
+  U0_RegFile (RegFile_test_1)          2.48e-02 6.65e-02 5.00e+06 9.62e-02  18.5
+  U0_SYS_CTRL (SYS_CTRL_test_1)        9.09e-03 1.77e-02 1.31e+06 2.81e-02   5.4
+    U0_CTRL_TX (CTRL_TX_test_1)        1.89e-03 2.04e-03 2.34e+05 4.16e-03   0.8
+    U0_CTRL_RX (CTRL_RX_test_1)        6.55e-03 1.56e-02 1.06e+06 2.32e-02   4.5
+  U0_UART (UART_test_1)                1.94e-02 1.52e-02 2.27e+06 3.68e-02   7.1
+    U0_UART_RX (UART_RX_test_1)        1.31e-02 8.76e-03 1.22e+06 2.31e-02   4.4
+      U0_stp_chk (stp_chk_test_1)      9.71e-05 2.06e-04 3.40e+04 3.37e-04   0.1
+      U0_par_chk (par_chk_test_1)      1.70e-04 2.44e-04 1.33e+05 5.47e-04   0.1
+      U0_strt_chk (strt_chk_test_1)    1.24e-06 2.30e-04 3.23e+04 2.63e-04   0.1
+      U0_deserializer (deserializer_test_1)
+                                       1.71e-03 2.74e-03 2.27e+05 4.68e-03   0.9
+      U0_data_sampling (data_sampling_test_1)
+                                       2.69e-03 1.70e-03 3.23e+05 4.71e-03   0.9
+      U0_edge_bit_counter (edge_bit_counter_test_1)
+                                       4.23e-03 2.23e-03 2.24e+05 6.68e-03   1.3
+      U0_uart_fsm (uart_rx_fsm_test_1) 3.20e-03 1.35e-03 2.11e+05 4.76e-03   0.9
+    U0_UART_TX (UART_TX_test_1)        5.94e-03 6.35e-03 1.04e+06 1.33e-02   2.6
+      U0_parity_calc (parity_calc_test_1)
+                                       1.73e-03 2.30e-03 3.97e+05 4.42e-03   0.8
+      U0_mux (mux_test_1)              1.37e-04 2.71e-04 3.61e+04 4.45e-04   0.1
+      U0_Serializer (Serializer_test_1)
+                                       2.09e-03 2.80e-03 4.19e+05 5.30e-03   1.0
+      U0_fsm (uart_tx_fsm_test_1)      1.14e-03 9.27e-04 1.73e+05 2.24e-03   0.4
+  U0_ClkDiv (ClkDiv_test_1)            2.06e-03 1.93e-03 2.97e+05 4.29e-03   0.8
+  U1_uart_sync (data_sync_test_1)      1.40e-03 1.50e-03 2.24e+05 3.12e-03   0.6
+  U0_ref_sync (data_sync_test_0)       1.86e-03 5.61e-03 2.59e+05 7.73e-03   1.5
+  U1_RST_SYNC (RST_SYNC_test_1)        2.51e-04 1.26e-03 2.88e+04 1.54e-03   0.3
+  U0_RST_SYNC (RST_SYNC_test_0)        2.37e-04 6.03e-04 2.85e+04 8.68e-04   0.2
+1

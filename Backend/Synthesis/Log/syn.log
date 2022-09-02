@@ -1,0 +1,802 @@
+                                        
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+                                        
+                 Version K-2015.06 for linux64 - May 28, 2015 
+                                        
+                    Copyright (c) 1988 - 2015 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/IC/.synopsys_dv_prefs.tcl
+########################### Define Top Module ############################
+set top_module SYS_TOP
+SYS_TOP
+##################### Define Working Library Directory ######################
+define_design_lib work -path ./work
+1
+############################# Formality Setup File ##########################
+set_svf $top_module.svf
+1
+################## Design Compiler Library Files #setup ######################
+puts "###########################################"
+###########################################
+puts "#      #setting Design Libraries          #"
+#      #setting Design Libraries          #
+puts "###########################################"
+###########################################
+#Add the path of the libraries to the search_path variable
+lappend search_path /home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys
+. /opt/Synopsys/Synplify2015/libraries/syn /opt/Synopsys/Synplify2015/minpower/syn /opt/Synopsys/Synplify2015/dw/syn_ver /opt/Synopsys/Synplify2015/dw/sim_ver /home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys
+set SSLIB "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+set TTLIB "scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db"
+scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+set FFLIB "scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db"
+scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+## Standard Cell libraries 
+set target_library [list $SSLIB $TTLIB $FFLIB]
+scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+## Standard Cell & Hard Macros libraries 
+set link_library [list * $SSLIB $TTLIB $FFLIB]  
+* scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+######################## Reading RTL Files #################################
+puts "###########################################"
+###########################################
+puts "#             Reading RTL Files           #"
+#             Reading RTL Files           #
+puts "###########################################"
+###########################################
+set file_format verilog
+verilog
+set fh [open system.lst r+]
+file11
+set rtl [read $fh]
+/home/IC/Projects/System/RTL/ALU/ALU.v
+/home/IC/Projects/System/RTL/Clock_Divider/ClkDiv.v
+/home/IC/Projects/System/RTL/Clock_Gating/CLK_GATE.v
+/home/IC/Projects/System/RTL/data_sync/data_sync.v
+/home/IC/Projects/System/RTL/RegFile/RegFile.v
+/home/IC/Projects/System/RTL/RST_SYNC/RST_SYNC.v
+/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_RX.v
+/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_TX.v
+/home/IC/Projects/System/RTL/SYS_CTRL/SYS_CTRL.v
+/home/IC/Projects/System/RTL/UART/UART_RX/RTL/data_sampling.v
+/home/IC/Projects/System/RTL/UART/UART_RX/RTL/deserializer.v
+/home/IC/Projects/System/RTL/UART/UART_RX/RTL/edge_bit_counter.v
+/home/IC/Projects/System/RTL/UART/UART_RX/RTL/par_chk.v
+/home/IC/Projects/System/RTL/UART/UART_RX/RTL/stp_chk.v
+/home/IC/Projects/System/RTL/UART/UART_RX/RTL/strt_chk.v
+/home/IC/Projects/System/RTL/UART/UART_RX/RTL/UART_RX.v
+/home/IC/Projects/System/RTL/UART/UART_RX/RTL/uart_rx_fsm.v
+/home/IC/Projects/System/RTL/UART/UART_TX/RTL/mux.v
+/home/IC/Projects/System/RTL/UART/UART_TX/RTL/parity_calc.v
+/home/IC/Projects/System/RTL/UART/UART_TX/RTL/Serializer.v
+/home/IC/Projects/System/RTL/UART/UART_TX/RTL/UART_TX.v
+/home/IC/Projects/System/RTL/UART/UART_TX/RTL/uart_tx_fsm.v
+/home/IC/Projects/System/RTL/UART/UART.v
+/home/IC/Projects/System/RTL/SYS_TOP/SYS_TOP.v
+
+set designs ""
+regsub -all "\n" $rtl " " designs
+24
+read_file -format $file_format $designs
+Loading db file '/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+Loading db file '/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/gtech.db'
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/standard.sldb'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_tt_1p2v_25c'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c'
+  Loading link library 'gtech'
+Loading verilog files: '/home/IC/Projects/System/RTL/ALU/ALU.v' '/home/IC/Projects/System/RTL/Clock_Divider/ClkDiv.v' '/home/IC/Projects/System/RTL/Clock_Gating/CLK_GATE.v' '/home/IC/Projects/System/RTL/data_sync/data_sync.v' '/home/IC/Projects/System/RTL/RegFile/RegFile.v' '/home/IC/Projects/System/RTL/RST_SYNC/RST_SYNC.v' '/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_RX.v' '/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_TX.v' '/home/IC/Projects/System/RTL/SYS_CTRL/SYS_CTRL.v' '/home/IC/Projects/System/RTL/UART/UART_RX/RTL/data_sampling.v' '/home/IC/Projects/System/RTL/UART/UART_RX/RTL/deserializer.v' '/home/IC/Projects/System/RTL/UART/UART_RX/RTL/edge_bit_counter.v' '/home/IC/Projects/System/RTL/UART/UART_RX/RTL/par_chk.v' '/home/IC/Projects/System/RTL/UART/UART_RX/RTL/stp_chk.v' '/home/IC/Projects/System/RTL/UART/UART_RX/RTL/strt_chk.v' '/home/IC/Projects/System/RTL/UART/UART_RX/RTL/UART_RX.v' '/home/IC/Projects/System/RTL/UART/UART_RX/RTL/uart_rx_fsm.v' '/home/IC/Projects/System/RTL/UART/UART_TX/RTL/mux.v' '/home/IC/Projects/System/RTL/UART/UART_TX/RTL/parity_calc.v' '/home/IC/Projects/System/RTL/UART/UART_TX/RTL/Serializer.v' '/home/IC/Projects/System/RTL/UART/UART_TX/RTL/UART_TX.v' '/home/IC/Projects/System/RTL/UART/UART_TX/RTL/uart_tx_fsm.v' '/home/IC/Projects/System/RTL/UART/UART.v' '/home/IC/Projects/System/RTL/SYS_TOP/SYS_TOP.v' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/IC/Projects/System/RTL/ALU/ALU.v
+Compiling source file /home/IC/Projects/System/RTL/Clock_Divider/ClkDiv.v
+Compiling source file /home/IC/Projects/System/RTL/Clock_Gating/CLK_GATE.v
+Compiling source file /home/IC/Projects/System/RTL/data_sync/data_sync.v
+Compiling source file /home/IC/Projects/System/RTL/RegFile/RegFile.v
+Compiling source file /home/IC/Projects/System/RTL/RST_SYNC/RST_SYNC.v
+Compiling source file /home/IC/Projects/System/RTL/SYS_CTRL/CTRL_RX.v
+Warning:  /home/IC/Projects/System/RTL/SYS_CTRL/CTRL_RX.v:29: Parameter keyword used in local parameter declaration. (VER-329)
+Compiling source file /home/IC/Projects/System/RTL/SYS_CTRL/CTRL_TX.v
+Warning:  /home/IC/Projects/System/RTL/SYS_CTRL/CTRL_TX.v:18: Parameter keyword used in local parameter declaration. (VER-329)
+Compiling source file /home/IC/Projects/System/RTL/SYS_CTRL/SYS_CTRL.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_RX/RTL/data_sampling.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_RX/RTL/deserializer.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_RX/RTL/edge_bit_counter.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_RX/RTL/par_chk.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_RX/RTL/stp_chk.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_RX/RTL/strt_chk.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_RX/RTL/UART_RX.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_RX/RTL/uart_rx_fsm.v
+Warning:  /home/IC/Projects/System/RTL/UART/UART_RX/RTL/uart_rx_fsm.v:24: Parameter keyword used in local parameter declaration. (VER-329)
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_TX/RTL/mux.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_TX/RTL/parity_calc.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_TX/RTL/Serializer.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_TX/RTL/UART_TX.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART_TX/RTL/uart_tx_fsm.v
+Compiling source file /home/IC/Projects/System/RTL/UART/UART.v
+Compiling source file /home/IC/Projects/System/RTL/SYS_TOP/SYS_TOP.v
+Warning:  /home/IC/Projects/System/RTL/SYS_TOP/SYS_TOP.v:100: the undeclared symbol 'CLKDIV_EN' assumed to have the default net type, which is 'wire'. (VER-936)
+
+Statistics for case statements in always block at line 34 in file
+	'/home/IC/Projects/System/RTL/ALU/ALU.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            41            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine ALU line 20 in file
+		'/home/IC/Projects/System/RTL/ALU/ALU.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     ALU_OUT_reg     | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    OUT_VALID_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine ClkDiv line 27 in file
+		'/home/IC/Projects/System/RTL/Clock_Divider/ClkDiv.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  odd_edge_tog_reg   | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|     div_clk_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      count_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine data_sync line 29 in file
+		'/home/IC/Projects/System/RTL/data_sync/data_sync.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    meta_flop_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    sync_flop_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine data_sync line 46 in file
+		'/home/IC/Projects/System/RTL/data_sync/data_sync.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   enable_flop_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine data_sync line 69 in file
+		'/home/IC/Projects/System/RTL/data_sync/data_sync.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_bus_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine data_sync line 83 in file
+		'/home/IC/Projects/System/RTL/data_sync/data_sync.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| enable_pulse_d_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine RegFile line 24 in file
+		'/home/IC/Projects/System/RTL/RegFile/RegFile.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     regArr_reg      | Flip-flop |  125  |  Y  | N  | Y  | N  | N  | N  | N  |
+|     regArr_reg      | Flip-flop |   3   |  Y  | N  | N  | Y  | N  | N  | N  |
+|   RdData_VLD_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     RdData_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+===========================================================
+| block name/line  | Inputs | Outputs | # sel inputs | MB |
+===========================================================
+|    RegFile/46    |   16   |    8    |      4       | N  |
+===========================================================
+
+Inferred memory devices in process
+	in routine RST_SYNC line 17 in file
+		'/home/IC/Projects/System/RTL/RST_SYNC/RST_SYNC.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_flop_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    meta_flop_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Statistics for case statements in always block at line 72 in file
+	'/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_RX.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            74            |    auto/auto     |
+|            78            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 188 in file
+	'/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_RX.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           203            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine CTRL_RX line 58 in file
+		'/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_RX.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  current_state_reg  | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine CTRL_RX line 330 in file
+		'/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_RX.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   RF_ADDR_REG_reg   | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine CTRL_RX line 346 in file
+		'/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_RX.v'.
+=================================================================================
+|     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+| UART_SEND_RF_DATA_reg | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+=================================================================================
+
+Inferred memory devices in process
+	in routine CTRL_RX line 362 in file
+		'/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_RX.v'.
+==================================================================================
+|     Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==================================================================================
+| UART_SEND_ALU_DATA_reg | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+==================================================================================
+
+Statistics for case statements in always block at line 42 in file
+	'/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_TX.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            44            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 90 in file
+	'/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_TX.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            93            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine CTRL_TX line 28 in file
+		'/home/IC/Projects/System/RTL/SYS_CTRL/CTRL_TX.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  current_state_reg  | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Statistics for case statements in always block at line 57 in file
+	'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/data_sampling.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            67            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine data_sampling line 25 in file
+		'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/data_sampling.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Samples_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine data_sampling line 57 in file
+		'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/data_sampling.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   sampled_bit_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine deserializer line 15 in file
+		'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/deserializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     P_DATA_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine edge_bit_counter line 16 in file
+		'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/edge_bit_counter.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   edge_count_reg    | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine edge_bit_counter line 43 in file
+		'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/edge_bit_counter.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    bit_count_reg    | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Statistics for case statements in always block at line 18 in file
+	'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/par_chk.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            20            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine par_chk line 32 in file
+		'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/par_chk.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     par_err_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine stp_chk line 13 in file
+		'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/stp_chk.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     stp_err_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine strt_chk line 13 in file
+		'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/strt_chk.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   strt_glitch_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Statistics for case statements in always block at line 50 in file
+	'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/uart_rx_fsm.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            52            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 137 in file
+	'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/uart_rx_fsm.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           146            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine uart_rx_fsm line 36 in file
+		'/home/IC/Projects/System/RTL/UART/UART_RX/RTL/uart_rx_fsm.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  current_state_reg  | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Statistics for case statements in always block at line 17 in file
+	'/home/IC/Projects/System/RTL/UART/UART_TX/RTL/mux.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            19            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine mux line 37 in file
+		'/home/IC/Projects/System/RTL/UART/UART_TX/RTL/mux.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       OUT_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Statistics for case statements in always block at line 29 in file
+	'/home/IC/Projects/System/RTL/UART/UART_TX/RTL/parity_calc.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            39            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine parity_calc line 16 in file
+		'/home/IC/Projects/System/RTL/UART/UART_TX/RTL/parity_calc.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     DATA_V_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine parity_calc line 29 in file
+		'/home/IC/Projects/System/RTL/UART/UART_TX/RTL/parity_calc.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     parity_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Serializer line 18 in file
+		'/home/IC/Projects/System/RTL/UART/UART_TX/RTL/Serializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     DATA_V_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Serializer line 36 in file
+		'/home/IC/Projects/System/RTL/UART/UART_TX/RTL/Serializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    ser_count_reg    | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Statistics for case statements in always block at line 79 in file
+	'/home/IC/Projects/System/RTL/UART/UART_TX/RTL/uart_tx_fsm.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            81            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine uart_tx_fsm line 28 in file
+		'/home/IC/Projects/System/RTL/UART/UART_TX/RTL/uart_tx_fsm.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  current_state_reg  | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine uart_tx_fsm line 121 in file
+		'/home/IC/Projects/System/RTL/UART/UART_TX/RTL/uart_tx_fsm.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      busy_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/IC/Projects/System/RTL/SYS_TOP/ALU.db:ALU'
+Loaded 24 designs.
+Current design is 'ALU'.
+ALU ClkDiv CLK_GATE data_sync RegFile RST_SYNC CTRL_RX CTRL_TX SYS_CTRL data_sampling deserializer edge_bit_counter par_chk stp_chk strt_chk UART_RX uart_rx_fsm mux parity_calc Serializer UART_TX uart_tx_fsm UART SYS_TOP
+###################### Defining toplevel ###################################
+current_design $top_module
+Current design is 'SYS_TOP'.
+{SYS_TOP}
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## Liniking All The Design Parts ########"
+######## Liniking All The Design Parts ########
+puts "###############################################"
+###############################################
+link 
+
+  Linking design 'SYS_TOP'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (24 designs)              /home/IC/Projects/System/RTL/SYS_TOP/SYS_TOP.db, etc
+  scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (library) /home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+  scmetro_tsmc_cl013g_rvt_tt_1p2v_25c (library) /home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+  scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c (library) /home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+
+1
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## checking design consistency ##########"
+######## checking design consistency ##########
+puts "###############################################"
+###############################################
+check_design
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Sun May 15 17:27:11 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      2
+    Unconnected ports (LINT-28)                                     1
+    Constant outputs (LINT-52)                                      1
+
+Cells                                                              16
+    Cells do not drive (LINT-1)                                    12
+    Connected to power or ground (LINT-32)                          2
+    Leaf pins connected to undriven nets (LINT-58)                  1
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                5
+    Unloaded nets (LINT-2)                                          5
+--------------------------------------------------------------------------------
+
+Warning: In design 'ClkDiv', cell 'C96' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C342' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C343' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C344' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C345' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C370' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C372' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C374' does not drive any nets. (LINT-1)
+Warning: In design 'Serializer', cell 'C96' does not drive any nets. (LINT-1)
+Warning: In design 'edge_bit_counter', cell 'C90' does not drive any nets. (LINT-1)
+Warning: In design 'edge_bit_counter', cell 'C97' does not drive any nets. (LINT-1)
+Warning: In design 'data_sampling', cell 'C127' does not drive any nets. (LINT-1)
+Warning: In design 'SYS_TOP', net 'UART_Config[7]' driven by pin 'U0_RegFile/REG2[7]' has no loads. (LINT-2)
+Warning: In design 'SYS_TOP', net 'DIV_RATIO[4]' driven by pin 'U0_RegFile/REG3[4]' has no loads. (LINT-2)
+Warning: In design 'SYS_TOP', net 'DIV_RATIO[5]' driven by pin 'U0_RegFile/REG3[5]' has no loads. (LINT-2)
+Warning: In design 'SYS_TOP', net 'DIV_RATIO[6]' driven by pin 'U0_RegFile/REG3[6]' has no loads. (LINT-2)
+Warning: In design 'SYS_TOP', net 'DIV_RATIO[7]' driven by pin 'U0_RegFile/REG3[7]' has no loads. (LINT-2)
+Warning: In design 'data_sampling', port 'Prescale[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'UART_TX', a pin on submodule 'U0_mux' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'IN_0' is connected to logic 0. 
+Warning: In design 'UART_TX', a pin on submodule 'U0_mux' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'IN_3' is connected to logic 1. 
+Warning: In design 'CTRL_RX', output port 'CLKDIV_EN' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'CLK_GATE', input pin 'B' of leaf cell 'C7' is connected to undriven net 'test_en'.  (LINT-58)
+Warning: In design 'SYS_TOP', input pin 'test_en' of hierarchical cell 'U0_CLK_GATE' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
+#################### Define Design Constraints #########################
+puts "###############################################"
+###############################################
+puts "############ Design Constraints #### ##########"
+############ Design Constraints #### ##########
+puts "###############################################"
+###############################################
+source ./cons.tcl
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Using operating conditions 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c' found in library 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c'.
+Using operating conditions 'scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c' found in library 'scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c'.
+###################### Mapping and optimization ########################
+puts "###############################################"
+###############################################
+puts "########## Mapping & Optimization #############"
+########## Mapping & Optimization #############
+puts "###############################################"
+###############################################
+compile 
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.0 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 23 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Warning: Operating condition scmetro_tsmc_cl013g_rvt_ss_1p08v_125c set on design SYS_TOP has different process,
+voltage and temperatures parameters than the parameters at which target library 
+scmetro_tsmc_cl013g_rvt_tt_1p2v_25c is characterized. Delays may be inaccurate as a result. (OPT-998)
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'CLK_GATE'
+  Processing 'ALU'
+  Processing 'RegFile'
+  Processing 'CTRL_TX'
+  Processing 'CTRL_RX'
+  Processing 'SYS_CTRL'
+  Processing 'stp_chk'
+  Processing 'par_chk'
+  Processing 'strt_chk'
+  Processing 'deserializer'
+  Processing 'data_sampling'
+  Processing 'edge_bit_counter'
+  Processing 'uart_rx_fsm'
+  Processing 'UART_RX'
+  Processing 'parity_calc'
+  Processing 'mux'
+  Processing 'Serializer'
+  Processing 'uart_tx_fsm'
+  Processing 'UART_TX'
+  Processing 'UART'
+  Processing 'ClkDiv'
+  Processing 'data_sync_0'
+  Processing 'RST_SYNC_0'
+  Processing 'SYS_TOP'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'ALU_DW_div_uns_0'
+  Processing 'ALU_DW01_sub_0'
+  Processing 'ALU_DW01_add_0'
+  Processing 'ALU_DW01_cmp6_0'
+  Processing 'ALU_DW02_mult_0'
+  Processing 'ALU_DW01_add_1'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:04  604252.6      0.00       0.0     141.6                          
+    0:00:04  604252.6      0.00       0.0     141.6                          
+    0:00:04  604252.6      0.00       0.0     141.6                          
+    0:00:05  604252.6      0.00       0.0     141.6                          
+    0:00:05  604252.6      0.00       0.0     141.6                          
+    0:00:05  584201.8     11.00      20.1     123.2                          
+    0:00:06  584944.3      4.54       5.4     123.3                          
+    0:00:06  584694.8      7.85      12.2     114.7                          
+    0:00:06  584964.2      8.11      12.6     114.7                          
+    0:00:06  585751.2      7.43      10.6     114.7                          
+    0:00:06  585727.7      6.84       9.9     114.7                          
+    0:00:06  586020.7      6.55       9.3     114.7                          
+    0:00:06  585765.4      6.26       8.3     114.7                          
+    0:00:06  585748.9      6.45       9.1     114.7                          
+    0:00:06  585752.4      6.00       8.2     114.7                          
+    0:00:06  585793.6      5.26       6.8     114.7                          
+    0:00:06  585808.9      5.19       6.6     114.7                          
+    0:00:06  586538.3      4.28       4.8     114.7                          
+    0:00:07  586693.6      4.23       4.7     114.7                          
+    0:00:07  586716.0      4.01       4.3     114.7                          
+    0:00:07  586770.1      3.68       3.7     114.7                          
+    0:00:07  587411.3      3.39       3.4     114.7                          
+    0:00:07  587411.3      3.17       3.2     114.7                          
+    0:00:07  587411.3      3.07       3.1     114.7                          
+    0:00:07  587392.5      3.07       3.1     114.7                          
+    0:00:07  587392.5      3.07       3.1     114.7                          
+    0:00:07  587818.4      3.07       3.1     109.0                          
+    0:00:07  588318.4      3.07       3.1     107.6                          
+    0:00:07  588319.6      3.07       3.1     107.3                          
+    0:00:07  588324.3      3.07       3.1     107.3                          
+    0:00:07  588324.3      3.07       3.1     107.3                          
+    0:00:07  588324.3      3.07       3.1     107.3                          
+    0:00:07  588324.3      3.07       3.1     107.3                          
+    0:00:07  591016.2      0.00       0.0     108.7                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:07  591016.2      0.00       0.0     108.7                          
+    0:00:07  591016.2      0.00       0.0     108.7                          
+    0:00:08  590856.2      0.00       0.0     112.6                          
+    0:00:08  590022.1      0.00       0.0     120.3                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:08  590022.1      0.00       0.0     120.3                          
+    0:00:08  591062.1      0.00       0.0     107.3                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:08  591062.1      0.00       0.0     107.3                          
+    0:00:08  591062.1      0.00       0.0     107.3                          
+    0:00:08  585672.6      0.11       0.1     107.3                          
+    0:00:09  584645.5      0.11       0.1     107.3                          
+    0:00:09  583439.6      0.13       0.1     107.3                          
+    0:00:09  583004.3      0.13       0.1     107.3                          
+    0:00:09  582856.1      0.13       0.1     107.3                          
+    0:00:09  582856.1      0.13       0.1     107.3                          
+    0:00:09  582845.5      0.00       0.0     107.3                          
+    0:00:09  582636.1      0.48       0.5     107.3                          
+    0:00:09  582590.2      0.53       0.5     107.3                          
+    0:00:09  582590.2      0.53       0.5     107.3                          
+    0:00:09  582590.2      0.53       0.5     107.3                          
+    0:00:09  582590.2      0.53       0.5     107.3                          
+    0:00:09  582590.2      0.53       0.5     107.3                          
+    0:00:09  582590.2      0.53       0.5     107.3                          
+    0:00:09  582672.5      0.00       0.0     107.3                          
+Loading db file '/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+Loading db file '/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+#############################################################################
+# Write out files
+#############################################################################
+write_file -format verilog -hierarchy -output netlists/$top_module.ddc
+Writing verilog file '/home/IC/Projects/System/Backend/Synthesis/netlists/SYS_TOP.ddc'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 5 nets to module SYS_TOP using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+write_file -format verilog -hierarchy -output netlists/$top_module.v
+Writing verilog file '/home/IC/Projects/System/Backend/Synthesis/netlists/SYS_TOP.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 5 nets to module SYS_TOP using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+write_sdf  sdf/$top_module.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/IC/Projects/System/Backend/Synthesis/sdf/SYS_TOP.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+write_sdc  -nosplit sdc/$top_module.sdc
+1
+####################### reporting ##########################################
+report_area -hierarchy > reports/area.rpt
+report_power -hierarchy > reports/power.rpt
+report_timing -delay_type min > reports/hold.rpt
+report_timing -delay_type max > reports/setup.rpt
+report_clock -attributes > reports/clocks.rpt
+report_constraint -all_violators -nosplit > reports/constraints.rpt
+################# starting graphical user interface #######################
+#gui_start
+#exit
+dc_shell> 

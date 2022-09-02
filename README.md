@@ -8,7 +8,9 @@ as well as CRC bits of result using 4 bytes frame through
 UART transmitter communication protocol.
 
 
-
+# Documents
+You will find a full description for the system in the system documentaion in the DOCs directory
+Also DOCs directory contains a documentaion for the UART Tx and Rx blocks.
 
 # ASIC Flow 
 All files needed to implement this sytem design is provided in the Backend folder
@@ -25,7 +27,5 @@ This system is designed using the VERILOG HDL and all the .v files can be found 
 The system is tested using a verilog test bench which you will find in the TB directory
 
 # Images
-You will find the system block diagram in the Images directory 
-          
-# Linkes          
-You can find the full specs of the system in this link: https://drive.google.com/file/d/1C0s-sk4Zc53y8HdnepfABpg2tmQpKwzE/view?usp=sharing
+You will find the system block diagram and other diagrams related to the design in the Images directory 
+         

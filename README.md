@@ -21,6 +21,9 @@ foe ex.:
 # RTL Code
 This system is designed using the VERILOG HDL and all the .v files can be found in the RTL floder.
 
+# Test Bench
+The system is tested using a verilog test bench which you will find in the TB directory
+
 # Images
 You will find the system block diagram in the Images directory 
           

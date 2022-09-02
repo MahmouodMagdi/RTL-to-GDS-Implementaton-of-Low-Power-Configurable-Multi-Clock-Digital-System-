@@ -7,7 +7,11 @@ doing some processing using ALU block and send result
 as well as CRC bits of result using 4 bytes frame through 
 UART transmitter communication protocol.
 
-RTL --> contains all the verilog codes of the whole system blocks.
+* RTL --> contains all the verilog codes of the whole system blocks.
+
+* Backend --> contains all the ASIC flow files and TCL scripts needed to implement eh system using EDA tools.
+
+* TB --> contains the system test bench used to check the functionallty of the system.
 
 
 Description: 
